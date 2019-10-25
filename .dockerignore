@@ -5,3 +5,4 @@ node_modules/
 .eslint*
 docker_push
 .travis.yml
+.prettierrc.yml
