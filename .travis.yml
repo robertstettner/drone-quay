@@ -1,16 +1,15 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 language: node_js
-
 node_js: 10
-
+cache: npm
 after_success:
-  - npm run coverage
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker build . -t robertstettner/drone-quay;
-    docker push robertstettner/drone-quay;
-    fi
+- npm run coverage
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  docker build . -t robertstettner/drone-quay; docker push robertstettner/drone-quay;
+  fi
+env:
+  global:
+  - secure: cVxRLOrQYkywguaAOsLkprJTs7LHkAhNpKwb58ujWyoNRYgLgdFjbrhyai36bjHmCCByodeZga0ENDfSbuC3HAiMuhwNFu8gBj6dzx4Vbhz4t4aDwNB2ySybq6iwvxrITqjtqkQ1delePaHUmRU07aOQpORbOt6+jPtePw4vrWaeMm7b1wPzTZdQDHBIsm/tUXNS/ftKr3l+Pg3hoQc08EC/BdnpLXnhGyzFx1AaXxoFgmP+osVIhGz8u1SS/1I+mWoK65XgJUjtCSHxzBeuoe3KcJwgsOre04MPygp5vBfgF2txWEGoLd39HNwXm39FEa25CnLfqa8ugOAKyASGIQREt6NngCQ2RC+pWGpsFUVD/E7waFpy0Pf5q4jrM/dhg0dTFfhGizVigBGqO0UCRcczX9y+2N4u0QoupfR7djwjEm5+vf1LdJryMVS/8pg3Pc1zHkDejcPc8jkQHC8hVTwYRSs2sRU5h2HwijChMRkjcsUxcpkpkXB5u4tr+XGwvlUfIPXdvZ+tbxClrJKv3AMlD3SnIOukr1j1Ju7IOo551WI/VNxwIdGKUmz8OTFNVjC7ZZMblnc3AHlxtmJLSad9zE98ZMN6jQ0YpY/eNzUz/5ye8DXNwDD3lE8xvTKTqi0+eGdW0VvQ53K8LsrVHfu7vS7O8nwe3ep1Brgawyg=
+  - secure: s5fZgCQLUV9Mrr7FXukOhUUSNlcSbBBixrneY0ab9CkbMKP3ZklfD2+wJq/l13CFhVzOIKIi+73VpK52anB4mHF+62cRWttv70Vv8gSpcIaJ45TFAgDbu2RHTArWn9bApEvr0CnOur23G0DF3KCiF7bAuZiCO0Bpp2u76xfLZHNAa3jUqn5TccGHGExItXXez5FSR3ClbrU6l7xvRWOpGPV5E48W9rXIGwSLD7yvSh/RBPYzw4pi3WD+rcY/yFsM0olZxky+q65FjhBHhvo57KmGe4uzHIRo2RcTInIvyOyVWtOrWx+jmePsPl5ZnOn5cTvo0h0stjAnBchrXjhrSA4X2H4gI/Aj+sQBp0sFqXLEuV2AOL7uPonnBnHHydKNKkBIzQjjBIFcW8BlBQtz9SaH1p4jKWrQvbQaOafQcC3WISUtaDK+RnfQXn/QsfZoDLlX+uQ2lwcEzmSnDOLXal/dt8NvOqiNcrBnaVVR6er6vIdzYxwE0dy2sNOScqOHv4MdbA1+7acdpmdoZKMuZCzG2PBMB9xmJ0cfqCD9YKSnOHC/Xs/2v4Gf402mtE8K2LyEHskCUFk13sNBA5etNUfP46Bgx6jATUogyRh+dCbZW8ytM52t0edJ7qzulMXvRKzgGMOVggHgsZ4XCFKKgW7rUDRu2Bo0zl1CjQ+nBvA=
