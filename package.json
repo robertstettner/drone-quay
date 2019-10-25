@@ -1,0 +1,30 @@
+{
+  "name": "drone-quay",
+  "version": "1.0.0",
+  "description": "Drone CI plugin for creating Quay repositories",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "nyc --report-dir ./coverage/component mocha test/ --recursive",
+    "coverage": "cat ./coverage/component/lcov.info | coveralls"
+  },
+  "author": "Robert Stettner <robert.stettner@gmail.com> (https://github.com/robertstettner)",
+  "license": "MIT",
+  "dependencies": {
+    "needle": "^2.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "mocha": "^6.2.1",
+    "nock": "^11.4.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2"
+  }
+}
