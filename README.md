@@ -1,4 +1,4 @@
-# drone-quay [![Build Status](https://travis-ci.com/robertstettner/drone-quay.svg?branch=master)](https://travis-ci.com/robertstettner/drone-quay) [![Coverage Status](https://coveralls.io/repos/github/robertstettner/drone-quay/badge.svg?branch=master)](https://coveralls.io/github/robertstettner/drone-quay?branch=master)
+# drone-quay [![Build Status](https://travis-ci.org/robertstettner/drone-quay.svg?branch=master)](https://travis-ci.org/robertstettner/drone-quay) [![Coverage Status](https://coveralls.io/repos/github/robertstettner/drone-quay/badge.svg?branch=master)](https://coveralls.io/github/robertstettner/drone-quay?branch=master)
 
 Drone CI plugin for creating repositories in [Quay.io](https://quay.io).
 
