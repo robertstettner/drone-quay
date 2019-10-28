@@ -1,21 +1,17 @@
 sudo: required
 services:
-- docker
+  - docker
 language: node_js
 node_js: 10
 cache: npm
 script:
-- npm t
+  - npm t
 after_success:
-- npm run coverage
+  - npm run coverage
 before_deploy:
-- docker build . -t robertstettner/drone-quay
+  - docker build . -t robertstettner/drone-quay
 deploy:
   provider: script
   script: bash docker_push
   on:
     branch: master
-env:
-  global:
-  - secure: qAPAfGOSF6McEjHhS4lgaVpTOT1Qp14Y4rU1GQJHzGXzB+QGpe0vBDJWNFLQI5gjKtqnvfjSIbJlGarnAIsMs9wlcpjYq+OhaExFzYtu6v5W+1VhVjotEo46IgyG3i3G3Bk5Z8ZztqdDzaaSijTmmalPIEhn+HETC8DrQ+OK1HWRND38ojj++gu/9UH2vdmbitchBfOa0CltIZ4kKh+3QTdF1KM6kR35rHwCQk2e7yrAkm1g++0FO/Phv4oK7fGoFXn4y886/paly6aYgzyR4eVIV3S/1FgAXpeOIHOZWAkko5w/l3tsnIaQO1wWdX8OPsvYj48/q54E+FJGa+tlTM99bxmJXMVI9fT4Zd5f7w+SmIY7E9sFP1xAvTszOD8tAX5RWhZW+dK7WMVUZ28FUlk9abl9lBLse1jxylz+Pf5DnNXw9wyjLy5a1gP01Y8+zVJY+GPyFDA1jSpK4fTosV4JDbGiAwS7K5bauT12f8M3hGTawUBDmn9O06nzlSotDM1k17HHOj69ensT/49X9VHRajy9/YTOJa9SquKq1GRAx8kL3s+IzioYqM3kRNrEVDMzhdabzabj7BLbK6lWfI/6IzwLNCoTv4MrwcmK51YBvVQbvQr9anLsVEHEGvZijIxlQTCOUQzdE2gysC7yESzrJT+X3wpXDfmWZbrUnHU=
-  - secure: oXsR+ZGZcAj5oFJkP+XATPCT2T6l79UG1S/1hjZVjdREbMN1qpzM8D3qWllyvrQavat7HsAUfW3HR/qVC7IkNH4vy1UyHS/xXcIA/9lKjmfuv57d4DdGDsoLEsPvTDWUSg3IUMAU39bRYA7Lc53ZGLEgIFVjR1dUWsrvDE3+M8DNOJObF1UHO0uk/ZYWyREaBlLLyv7L7UGJXWk27gjaf/qEl1gvnflH1VtZa9NjDiszTDL1XIPR97ovF9bDmA/waNsUETIXnnrVaMjKvMEze78uPtgTpHmF81+YHX0CXB4BbGxCtpFfKMvOEIa9mZRXXCwy+GSvIelsz3tEulV37dK2b2eAFNiiJZ3AJVEGr0fnO4/olbfQrYRNHrivVME38zOB2HIuC/gezuuHVKsmHBKb9BdZ87TnkUGc+6fsT2XnYpjpBIfEzgYoUMyuU1KPSAi5raxzkMPvOKgdvDaDESr2K6IHRpRDg3btaZEcWDUA9ErQUJC+impQ0fXbJ+Dbm8Ix/K21uiveG6jUAI2mgznxles5euo4s7jI/lcYgqjErkXtu8Kmf78Cn+L4RnqkucjtqqIHr545Dznx8gj6uL6+qsNjxq4zH0uyweblH3C5RWcSdu1C5v441yFskd66py9BRAu0wCENAQWki8fJAhPn1YY6MSxflhDOr9Ts/q4=
